@@ -96,7 +96,7 @@ The following machine learning models were implemented and evaluated for fraud d
 ## 🚀 Deployment
 
 This application is deployed on **Streamlit Cloud** and can be accessed at:
-**[Live Demo](https://ml-assignment2.streamlit.app)** *(URL will be available after deployment)*
+**[Live Demo](https://ml-assignment2-k5lxgyzxqklzfb9vlqqwb7.streamlit.app/)** *(URL will be available after deployment)*
 
 ### Local Development
 To run the application locally:
@@ -135,10 +135,6 @@ The app is automatically deployed from the main branch of this repository. Any c
 3. **Run Evaluation**: Click the "Run Evaluation" button to see model performance metrics
 4. **View Results**: Analyze the confusion matrix, classification report, and performance metrics
 
-### Required Data Format
 
-Your CSV file should contain all the features used in training plus the target column `is_high_risk_transaction` for evaluation.
-
-## 🚀 Tech Stack
 
 
