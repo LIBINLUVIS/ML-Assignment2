@@ -1,0 +1,28 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+
+# Dataset and Artifacts
+# models/*.pkl
+*.csv
+!processed_metaverse_transactions.csv
+!test_data_sample.csv
+!model_comparison_results.csv
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
