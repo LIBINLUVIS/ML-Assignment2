@@ -10,6 +10,66 @@ The project utilizes a preprocessed dataset of metaverse transactions containing
 Open Metaverse. *Metaverse Financial Transactions Dataset*. Kaggle.  
 Available at: https://www.kaggle.com/datasets/faizaniftikharjanjua/metaverse-financial-transactions-dataset
 
+### Class Distribution & Evaluation Strategy
+The derived dataset exhibits a moderately balanced distribution, avoiding the extreme skew often found in traditional fraud datasets:
+* **High-Risk Transactions (Class 1):** ~31.8%
+* **Normal Transactions (Class 0):** ~68.2%
+
+Given that the minority class representation is significant, the model can be trained without the need for synthetic resampling (e.g., SMOTE). Performance is evaluated using a comprehensive suite of metrics to ensure a holistic view of model effectiveness:
+* **Accuracy & F1-Score:** For overall reliability.
+* **Precision & Recall:** To measure the trade-off between false alarms and missed detections.
+* **AUC & MCC:** To assess the model's discriminative power and correlation regardless of class size.
+
+###  Model Benchmarking Observations
+Preliminary testing across various algorithms provided the following insights:
+* **Ensemble Models (XGBoost, Random Forest):** Provided superior results by effectively capturing non-linear patterns in metaverse transaction behavior.
+* **k-Nearest Neighbors (kNN):** Demonstrated strong performance, though limited by scalability issues with larger transaction volumes.
+* **Probabilistic Models (Naive Bayes):** Acted as a fast, baseline classifier but was outperformed by models capable of detecting complex feature interactions.
+
+---
+**Target Variable:**
+*   `is_high_risk_transaction`: 0 (Legitimate), 1 (High Risk/Fraud)
+
+**Key Features:**
+*   **Transactional:** `amount`, `transaction_type`, `hour_of_day`
+*   **Behavioral:** `login_frequency`, `session_duration`, `purchase_pattern`
+*   **Demographic/Regional:** `age_group`, `location_region`
+*   **Technical:** `ip_prefix` (anonymized), `anomaly` scores
+
+## Solution Architecture
+The solution involves a complete end-to-end machine learning pipeline:
+1.  **Data Preprocessing**: Handling categorical variables (One-Hot Encoding) and numerical scaling (StandardScaler) using a Scikit-Learn Pipeline.
+2.  **Model Training**: Training and evaluating six different classification algorithms:
+    *   Logistic Regression
+    *   Decision Tree
+    *   K-Nearest Neighbors (KNN)
+    *   Gaussian Naive Bayes
+    *   Random Forest
+    *   XGBoost
+3.  **Evaluation**: continuous assessment using metrics like **ROC-AUC**, **F1-Score**, **Precision**, **Recall**, and **Matthews Correlation Coefficient (MCC)**.
+4.  **Deployment**: A user-friendly **Streamlit** web application for real-time model interaction and testing.
+
+## 🚀 Tech Stack
+*   **Language**: Python 3.9+
+*   **Machine Learning**: Scikit-Learn, XGBoost
+*   **Data Manipulation**: Pandas, NumPy
+*   **Visualization**: Matplotlib, Seaborn
+*   **Web App**: Streamlit
+*   **Model Serialization**: Joblib
+
+## 📁 Project Structure
+``` 
+ML_Project/
+├── app.py                      # Streamlit dashboard application
+├── train_models.py             # Script to train and save models
+├── eda_metaverse.py            # Exploratory Data Analysis script
+├── requirements.txt            # Project dependencies
+├── processed_metaverse_transactions.csv  # Dataset
+├── models/                     # Directory for saved model artifacts (.pkl)
+├── README.md                   # Project documentation
+└── .gitignore                  # Git ignore file
+```
+
 ## Models Used
 
 The following machine learning models were implemented and evaluated for fraud detection:
