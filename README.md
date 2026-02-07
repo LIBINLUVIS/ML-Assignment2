@@ -1,4 +1,3 @@
-
 #  Metaverse Financial Fraud Detection
 
 ## Problem Statement
@@ -93,5 +92,53 @@ The following machine learning models were implemented and evaluated for fraud d
 | Naive Bayes | High precision but lower recall indicates conservative fraud detection. Perfect precision means no false positives but misses some fraudulent transactions. |
 | Random Forest (Ensemble) | Outstanding ensemble performance with near-perfect metrics. Combines multiple decision trees for robust and reliable fraud detection. |
 | XGBoost (Ensemble) | Best overall performance with the highest scores across all metrics. Gradient boosting provides superior fraud detection capabilities with perfect recall. |
+
+## 🚀 Deployment
+
+This application is deployed on **Streamlit Cloud** and can be accessed at:
+**[Live Demo](https://ml-assignment2.streamlit.app)** *(URL will be available after deployment)*
+
+### Local Development
+To run the application locally:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/LIBINLUVIS/ML-Assignment2.git
+cd ML-Assignment2
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Train the models (if not already done):
+```bash
+python train_models.py
+```
+
+4. Run the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+The application will be available at `http://localhost:8501`
+
+### Streamlit Cloud Deployment
+
+The app is automatically deployed from the main branch of this repository. Any changes pushed to the main branch will trigger a new deployment.
+
+## 📊 How to Use the App
+
+1. **Select a Model**: Choose from the available trained models in the sidebar
+2. **Upload Test Data**: Upload a CSV file containing transaction data with the required features
+3. **Run Evaluation**: Click the "Run Evaluation" button to see model performance metrics
+4. **View Results**: Analyze the confusion matrix, classification report, and performance metrics
+
+### Required Data Format
+
+Your CSV file should contain all the features used in training plus the target column `is_high_risk_transaction` for evaluation.
+
+## 🚀 Tech Stack
 
 
